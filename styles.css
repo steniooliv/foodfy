@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 :root {
-  --black: #111111;
+  --black: #000000;
+  --black-900: #111111;
   --pink-100: #FBDFDB;
+  --white: #ffffff;
   --grey-100: #eeeeee;
   --grey-700: #999999;
   --grey-800: #777777;
@@ -24,27 +26,27 @@ h1 {
   font-size: 32px;
   line-height: 38px;
   font-weight: bold;
-  color: var(--black);
+  color: var(--black-900);
 }
 
 h2 {
   font-size: 24px;
   line-height: 28px;
   font-weight: bold;
-  color: var(--black);
+  color: var(--black-900);
 }
 
 h3 {
   font-size: 20px;
   line-height: 24px;
   font-weight: bold;
-  color: var(--black);
+  color: var(--black-900);
 }
 
 h4 {
   font-size: 18px;
   line-height: 21px;
-  color: var(--black);
+  color: var(--black-900);
 }
 
 .header {
@@ -63,7 +65,7 @@ h4 {
 .header nav a {
   font-size: 16px;
   line-height: 19px;
-  color: var(--black);
+  color: var(--black-900);
   text-decoration: none;
 }
 
@@ -98,7 +100,7 @@ main {
 .banner p {
   font-size: 18px;
   line-height: 28px;
-  color: var(--black);
+  color: var(--black-900);
 }
 
 .banner img {
@@ -159,4 +161,61 @@ footer p {
   font-size: 14px;
   line-height: 16px;
   color: var(--grey-700);
+}
+
+
+/* === MODAL === */
+
+.modal-overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  visibility: hidden;
+}
+
+.modal-overlay.active {
+  visibility: visible;
+}
+
+.modal {
+  width: 660px;
+  background-color: var(--white);
+  margin: 10vh auto;
+  padding: 30px;
+  border-radius: 16px;
+}
+
+.close {
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--grey-700);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-modal img {
+  max-width: 600px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.card-modal h2{
+  margin-bottom: 5px;
+}
+
+.card-modal p {
+  font-size: 18px;
+  line-height: 21px;
+  color: var(--grey-800);
+  margin-bottom: 60px;
 }
