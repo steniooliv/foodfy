@@ -1,133 +1,25 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "layout.njk" %}
 
-  <link rel="stylesheet" href="styles.css">
+{% block content %}
 
-  <title>Foodfy</title>
-</head>
-<body>
-
-  <header class="header">
-    <a href="index.html">
-      <img src="assets/logo.png" alt="Logo Foodfy">
-    </a>
-    <nav>
-      <a href="about.html">Sobre</a>
-      <a href="recipes.html">Receitas</a>
-    </nav>
-  </header>
   <main>
    <article>
       <div class="cards">
-        <div class="card" id="burger">
-          <img src="assets/burger.png" alt="Triplo bacon burger">
-          <div>
-            <h4 class="title">Triplo bacon burguer</h4>
-            <p class="chef">por Jorge Relato</p>
+
+       {% for recipe in recipes %}
+          <div class="card">
+            <img src="{{recipe.image}}" alt="Imagem de {{recipe.title}}">
+            <div>
+              <h4 class="title">{{recipe.title}}</h4>
+              <p class="chef">por {{recipe.author}}</p>
+            </div>
           </div>
-        </div>
-        <div class="card" id="pizza">
-          <img src="assets/pizza.png" alt="Pizza 4 estações">
-          <div>
-            <h4 class="title">Pizza 4 estações</h4>
-            <p class="chef">por Fabiana Melo</p>
-          </div>
-        </div>
-        <div class="card" id="espaguete">
-          <img src="assets/espaguete.png" alt="Espaguete ao alho">
-          <div>
-            <h4 class="title">Espaguete ao alho</h4>
-            <p class="chef">por Júlia Kinoto</p>
-          </div>
-        </div>
-        <div class="card" id="lasanha">
-          <img src="assets/lasanha.png" alt="Lasanha mac n'cheese">
-          <div>
-            <h4 class="title">Lasanha mac n'cheese</h4>
-            <p class="chef">por Juliano Vieira</p>
-          </div>
-        </div>
-        <div class="card" id="doce">
-          <img src="assets/doce.png" alt="Docinhos pão-do-céu">
-          <div>
-            <h4 class="title">Docinhos pão-do-céu</h4>
-            <p class="chef">por Ricardo Golvea</p>
-          </div>
-        </div>
-        <div class="card" id="asinhas">
-          <img src="assets/asinhas.png" alt="Asinhas de frango ao barbecue">
-          <div>
-            <h4 class="title">Asinhas de frango ao barbecue</h4>
-            <p class="chef">por Vania Steroski</p>
-          </div>
-        </div>
-        <div class="card" id="burger">
-          <img src="assets/burger.png" alt="Triplo bacon burger">
-          <div>
-            <h4 class="title">Triplo bacon burguer</h4>
-            <p class="chef">por Jorge Relato</p>
-          </div>
-        </div>
-        <div class="card" id="pizza">
-          <img src="assets/pizza.png" alt="Pizza 4 estações">
-          <div>
-            <h4 class="title">Pizza 4 estações</h4>
-            <p class="chef">por Fabiana Melo</p>
-          </div>
-        </div>
-        <div class="card" id="espaguete">
-          <img src="assets/espaguete.png" alt="Espaguete ao alho">
-          <div>
-            <h4 class="title">Espaguete ao alho</h4>
-            <p class="chef">por Júlia Kinoto</p>
-          </div>
-        </div>
-        <div class="card" id="lasanha">
-          <img src="assets/lasanha.png" alt="Lasanha mac n'cheese">
-          <div>
-            <h4 class="title">Lasanha mac n'cheese</h4>
-            <p class="chef">por Juliano Vieira</p>
-          </div>
-        </div>
-        <div class="card" id="doce">
-          <img src="assets/doce.png" alt="Docinhos pão-do-céu">
-          <div>
-            <h4 class="title">Docinhos pão-do-céu</h4>
-            <p class="chef">por Ricardo Golvea</p>
-          </div>
-        </div>
-        <div class="card" id="asinhas">
-          <img src="assets/asinhas.png" alt="Asinhas de frango ao barbecue">
-          <div>
-            <h4 class="title">Asinhas de frango ao barbecue</h4>
-            <p class="chef">por Vania Steroski</p>
-          </div>
-        </div>
+        {% endfor %}
+
       </div>
     </article>
   </main>
 
-  <div class="modal-overlay">
-    <div class="modal">
-      <div class="card-modal">
-        <img src="assets/asinhas.png" alt="Asinhas de frango ao barbecue">
-        <h2 class="title"></h2>
-        <p class="chef">por Vania Steroski</p>
-      </div>
-      <a class="close">
-        <p>Fechar modal</p>
-      </a>
-    </div>
-  </div>
-
-  <footer>
-    <p>Todos direitos reservados, receitas Foodfy.</p>
-  </footer>
-
   <script src="scripts.js"></script>
-</body>
-</html>
+
+{% endblock %}
