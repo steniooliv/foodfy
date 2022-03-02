@@ -212,7 +212,15 @@ form input {
 }
 
 form textarea {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--black-900);
   width: 100%;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  padding: 15px 20px;
+  margin: 10px 0;
   resize: none;
 }
 
