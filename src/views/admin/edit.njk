@@ -1,0 +1,103 @@
+{% extends "./layout.njk" %}
+
+{% block content %}
+  <main class="description">
+  
+    <div class="recipe">
+      <h2>Criando receita</h2>
+      <div class="buttons">
+        <button style="background-color: #DC4747; margin-right: 10px" onClick="deleteConfirm(event)" form="delete" type="submit">Deletar</button>
+        <button form="save" type="submit">Salvar receita</button>
+      </div>
+    </div>
+    <form id="delete" action="/admin/recipes?_method=DELETE" method="POST">
+      <input type="hidden" name="id" value={{recipe.id}}>
+    </form>
+
+    <form id="save" action="/admin/recipes?_method=PUT" method="POST">
+
+      <input type="hidden" name="id" value={{recipe.id}}>
+      
+      <div class="item">
+        <h5>Imagem da receita</h5>
+        <input
+          type="text"
+          name="image"
+          id="image"
+          value="{{recipe.image}}"
+        >
+      </div>
+
+      <div class="item">
+        <h5>Ingredientes</h5>
+        <div id="ingredients">
+        {% if recipe.ingredients == null %}
+          <div class="ingredient">
+            <input
+              type="text"
+              name="ingredients[]"
+            />
+          </div>
+        {% else %}
+          {% for ingredient in recipe.ingredients %}
+            <div class="ingredient">
+              <input
+                  type="text"
+                  name="ingredients[]"
+                  value="{{ingredient}}"
+              >
+            </div>
+          {% endfor %}
+        {% endif %}
+        </div>
+
+        <button type="button" class="add-ingredient">
+          Adicionar ingrediente
+        </button>
+      </div>
+
+      <div class="item">
+        <h5>Modo de preparo</h5>
+        <div id="preparations">
+          {% if recipe.preparation == null %}
+          <div class="preparation">
+            <input
+              type="text"
+              name="preparation[]"
+            />
+          </div>
+        {% else %}
+          {% for steps in recipe.preparation %}
+            <div class="preparation">
+              <input
+                  type="text"
+                  name="preparation[]"
+                  value="{{steps}}"
+              >
+            </div>
+          {% endfor %}
+        {% endif %}
+        </div>
+        <button type="button" class="add-preparation">
+          Adicionar novo passo
+        </button>
+      </div>
+
+      <div class="item">
+        <h5>Informações adicionais</h5>
+        <textarea
+          name="information"
+          id="information"
+          cols="30"
+          rows="10"
+          value="a"
+        >{{recipe.information}}</textarea>
+      </div>
+
+    </form>
+
+  </main>
+
+  <script src="/scripts.js"></script>
+
+{% endblock content %}
